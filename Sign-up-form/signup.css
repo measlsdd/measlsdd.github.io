@@ -1,0 +1,167 @@
+@font-face {
+    font-family: DoctorGlitch;
+    src: url("DoctorGlitch.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Positions;
+    src: url("PositionsRegular\ .otf") format("opentype");
+}
+
+@font-face {
+    font-family: Bblood;
+    src: url("Black\ Blood.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Sengatz;
+    src: url(Sengatz.otf);
+}
+
+:root {
+    --paper-backgroundimage: url("parchmen.jpg");
+    --header-font: DoctorGlitch;
+    --para-font: Positions;
+}
+
+body {
+    background-image: url("Dinor.jpeg");
+}
+
+form {
+    width: 50vw;
+    position: relative;
+    top: -40vh;
+    left: 45vw;
+    background-image: var(--paper-backgroundimage);
+    padding: 5px 10px;
+}
+
+li {
+    list-style: none;
+}
+
+h1, h2 {
+    font-family: var(--header-font);
+}
+legend, h2 {
+    font-family: Sengatz;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-left: 40%;
+}
+form > h2 
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+legend {
+    font-size: 2rem;
+}
+
+label, p {
+    font-family: var(--para-font);
+    font-size: 1.3rem;
+}
+
+section#introduction
+{
+    width: 40vw;
+    margin-left: 2vw;
+    position: relative;
+    top: 35vh;
+    background-image: var(--paper-backgroundimage);
+    padding: 10px;
+    box-shadow: 5px 5px 5px green inset;
+}
+fieldset
+{
+    margin-top: 5px;
+}
+
+form > button {
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    font-family: Bblood;
+    font-size: 3rem;
+    background-color: transparent;
+    border: transparent;
+    margin-bottom: 10px;
+}
+
+form > button:hover 
+{
+    border-radius: 50%;
+    width: 80px;
+    transition: background-color 2s ease;
+    background-color: red;
+    
+
+}
+
+form > button[type="submit"]::after
+{
+    white-space: nowrap;
+    content: " I consent."; 
+    opacity: 0;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    transition: all 3s;
+}
+
+form > button[type="submit"]:hover::after
+{
+    opacity: 1;
+    text-shadow: 0;
+}
+
+ input[type="text"], [type="email"],  [type="number"] {
+    width: 150px;
+    box-sizing: border-box;
+    margin-right: 50px;
+    margin-bottom: 8px;
+}
+
+label[for="firstname"] {
+    margin-right: 40px;
+}
+label[for="lastname"] {
+    margin-right: 47px;
+}
+label[for="email"] {
+    margin-right: 88px;
+}
+
+div.reasons {
+    width: 60%;
+    margin-left: 20%;
+}
+
+div.lastmeal {
+    width: 60%;
+    margin-left: 20%;
+}
+
+/* Validity checking  */
+
+:invalid {
+    box-shadow: 5px 5px black;
+}
+
+:valid {
+    border-color: blue;
+    box-shadow: -5px - 10px blue;
+}
+
+/* Button styleing and sign */
+
+button[type="submit"] {
+    margin-left: 20%;
+    margin-right: 30%;
+}

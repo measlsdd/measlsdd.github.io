@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <section id="introduction">
+        <header>
+            <h1>Sun Science Facualty</h1>
+        </header>
+        <p>Hello we are the <b>Sun Science Faculty</b>. You may recognize us from popular films such as sun wars,
+            harry potter and the science facuilty and game of thrones a song of ice and sun science. Or our most
+            famous
+            production work which Jurra-Sun Park. Anyways, we are offering you a once-in-a-lifetime
+            opportunity
+            to volunteer as a new extra for our upcoming movie (its a suprise!). You can expect it to be a thirlling and
+            highly
+            rewarding experience! Volunteers will be compensated immensly, up to $5,000.
+            Sign up on the right! Only the first 100 people will be accepted, quick! Time is ticking,
+            5, 4, 3, 2, 1 ...
+        </p>
+    </section>
+
+    <form action="./" method="post">
+        <h2> Sign up here! </h2>
+        <fieldset>
+            <legend>Contact Details</legend>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="first_name" placeholder="Mary" required>
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="last_name" placeholder="Doe" required>
+            <br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="MaryDoe@gmail.com" required>
+            <label for="phonenumber">contact number</label>
+            <input type="text" required>
+            <br>
+            <label for="minage">Are you 18 yrs and older</label>
+            <input type="checkbox" id="minage" name="isOldEnough" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Questionaire</legend>
+            <label for="join-reasons"> Reasons for Joining</label>
+            <br>
+            <div class="reasons">
+                <label for="reason-science">science</label>
+                <input type="radio" id="reason-science" name="join_reason" value="science" required>
+                <label for="reason-humanity">humanity</label>
+                <input type="radio" id="reason-humanity" name="join_reason" value="humanity">
+                <label for="reason-money">money</label>
+                <input type="radio" id="reason-money" name="join_reason" value="money">
+                <label for="reason-fame">fame</label>
+                <input type="radio" id="reason-fame" name="join_reason" value="fame">
+            </div>
+
+            <p>If you <span>could</span> have your last meal what would you have?</p>
+            <div class="lastmeal">
+                <label for="lastmeal-origin">Origin</label>
+                <select name="last_meal_origin" id="lastmeal-origin">
+                    <option value="american" required>American</option>
+                    <option value="asian">Asian</option>
+                    <option value="african">African</option>
+                    <option value="japanese">Japanese</option>
+                    <option value="italian">Italian</option>
+                </select>
+                <label for="lastmeal-food">meal</label>
+                <select name="last_meal_food" id="lastmeal">
+                    <option value="hamburger" required>Hamburger</option>
+                    <option value="curry">Curry</option>
+                    <option value="steak">Steak</option>
+                    <option value="salad">Salad</option>
+                </select>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Terms and conditions</legend>
+            <div id="tc-box">
+                <p>
+                    Thank you for participating here are the terms and conditions
+                    <ul>
+                        <li>
+                            <p>1. You must give us all your money</p>
+                        </li>
+                        <li>
+                            <p>2. No complaining if anything horrible happens</p>
+                        </li>
+                        <li>
+                            <p>3. Injuries that occur to you are all your fault</p>
+                        </li>
+                        <li>
+                            <p>4. Do not sue us</p>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <label for="terms">Do you agree with the terms and conditions</label>
+            <input type="checkbox" id="terms" name="terms" required>
+        </fieldset>
+        <fieldset>
+            <legend>Any <del>last words</del> feedback?</legend>
+            <textarea name="last_words" id="last-words" cols="60" rows="5" required minlength="10"></textarea>
+        </fieldset>
+        <button type="submit">Sign</button>
+        <button type="reset">Erase</button>
+    </form>
+
+</body>
+
+</html>
