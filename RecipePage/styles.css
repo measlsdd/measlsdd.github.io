@@ -1,0 +1,448 @@
+@font-face {
+    font-family: gently;
+    src: url(GentyDemo-Regular.otf);
+  }
+
+  @font-face {
+      font-family: sundayBurn;
+      src: url(SundayBurn.otf);
+  }
+
+  @font-face {
+      font-family: absGrove;
+      src: url(aAbstractGroovy.otf);
+  }
+  @keyframes twist {
+    100% {width: 100vw;
+     }
+  }
+
+  @keyframes dissolve {
+    25% { 
+        filter: blur(4px);
+    }
+    50% { 
+        filter: blur(8px);
+    }
+
+    75% {
+        filter: blur(12px);
+        opacity: 0.5;
+    }
+    100% {
+        filter: blur(50px);
+        opacity: 0;
+    }
+  }
+
+  @keyframes glow {
+    0% {background-color: red;}
+    100% {background-color: yellow;}
+  }
+
+
+:root {
+    --speech-bubble-height: 150px;
+    --speech-bubble-width: 300px;
+    --click-transition-duration: 5s;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(red, yellow, rgb(250, 242, 242));
+    margin-top: 0;
+    margin-left: 0;
+}
+
+div {
+    border: 2px black;
+}   
+
+.header {
+    width: 100vw;
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1950a3;
+    background-image: linear-gradient(#1950a3, orange);
+    border-width: 5px;
+    box-shadow:inset -10px -10px 10px #fbff00, inset 5px 5px 10px #4ea0d6;
+    margin-bottom: 0%;
+}
+
+.header>ul {
+    display: flex;
+}
+
+.links a, .header>a {
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+    text-shadow: black 3px;
+    border: black solid;
+    background-color: #25b8b9;
+    background-image: linear-gradient(#1950a3, orange);
+    padding: 10px;
+    transition-duration: 2s;
+    font-family: sundayBurn;
+    font-weight: bold;
+    border-radius: 10%;
+}
+
+.header>a{
+    font-size: 32px;
+    font-weight: bolder;
+    border: black solid;
+    padding: 10px;
+    background-color: #25b8b9;
+    font-family: gently;
+}
+
+a:hover:not(.recipe-link) {
+    background-color: rgb(245, 62, 62);
+    box-shadow:inset 0px -50px 0px white, 0 -3px 10px rgb(247, 109, 109);
+}
+
+.left-header {
+    display: flex;
+}
+
+
+ul:not(.hidden-div ul) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.recipe-link {
+    text-decoration: none;
+}
+
+li {
+    position: relative;
+}
+.trapezoid {
+    position:absolute;
+	border-top: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0px;
+	width: 125px;
+}
+
+
+img.banner {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 70%;
+}
+
+.opening-img, .closing-img {
+    height: 40vh;
+    width: auto;
+    border-radius: 20%;
+    box-shadow:  -5px -5px 10px rgb(245, 235, 235), 5px 5px 10px rgb(238, 227, 227);
+}
+
+.opening-img {
+    margin-bottom: 20px;
+}
+
+.opening-display, .ending-display {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: brown;
+    flex-direction: column;
+    border-radius: 10%;
+    margin-top: 10px;
+}
+
+.opening-display {
+    position: relative;
+    background-image: radial-gradient( white 10%, orange, rgb(0, 0, 255));
+}
+
+.ending-display {
+    background-image: linear-gradient(white, orange, red);
+    width: 30vw;
+}
+
+.opening-display>p {
+    font-family: gently;
+    font-size: 2rem;
+    position: absolute;
+    bottom: -30px;
+}
+
+.content {
+    border-style: none dashed;
+    border-color: black;
+    border-width: 10px;
+    padding: 10px;
+}
+.recipes {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-style: dashed none;
+    border-color: black;
+    border-width: 5px
+}
+
+.recipe-card {
+    text-align: center;
+    border: black outset;
+    background-color: orange;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+.recipe-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
+}
+
+.card-text {
+    transition-duration: calc(var(--click-transition-duration) - 2s);
+    transition-property: opacity;
+} 
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.hidden-div {
+    position: absolute;
+    z-index: 3;
+    text-align: left;
+    height: 85%;
+    width: 85%;
+    transition-property: opacity;
+    transition-duration: 2s;
+    transition-delay: calc(var(--click-transition-duration) /3);
+    font-family: monospace;
+    overflow: auto;
+    margin: 0;
+    padding: 3px;
+}
+
+.recipe {
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+}
+
+.recipes p:not(.hidden-div p) {
+    font-family: absGrove;
+    font-size: 1.2em;
+}
+
+.recipe-link {
+    text-decoration: none;
+    color: black;
+}
+
+.recipe-img {
+    filter: blur(0);
+    animation-name: blur;
+    animation-duration: var(--click-transition-duration);
+    animation-iteration-count: infinite;
+    animation-direction: alternate; 
+
+}
+
+.glow-anim {
+    background-color: red;
+    animation-name: glow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.anim {
+    position: absolute;
+}
+
+
+.apply-twist-anim {
+    animation-name: twist;
+    transition-duration: 5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+.apply-dissolve-anim {
+    animation-name: dissolve;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.unapply-dissolve-anim {
+    animation-name: dissolve;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: reverse
+}
+
+
+.convo {
+    display: flex;
+    width: 75vw;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.speech-box {
+    display: flex;
+    opacity: 0.2;
+}
+
+.convo > .speech-box:nth-child(2n) {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.convo > .speech-box:nth-child(2n + 1) .speech-bubble {
+    transform: scaleX(-1);
+}
+
+.speech-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.speech-bubble {
+    width: var(--speech-bubble-width);
+    height: var(--speech-bubble-height);
+}
+
+.speech-bubble-box {
+    position: relative;
+}
+
+.speech-text {
+    width: calc(var(--speech-bubble-width) - var(--speech-bubble-width) * 0.2 );
+    height: calc(var(--speech-bubble-height) - var(--speech-bubble-height)* 0.4);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-align: center;
+    font-family: sundayBurn;
+    font-size: 1.5rem;
+}
+.speech-text.rick {
+    margin-left: 25px;
+}
+
+.recipes {
+    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    margin-top: 5px;
+    width: 100vw;
+    height: 9vh;
+    background-color: white;
+    text-align: center;
+    font-family: gently;
+    font-size: 2em;
+    background-image: linear-gradient( orange, red);
+}
+
+.deco {
+    display: flex;
+    position: absolute;
+}
+
+.cloud {
+    top: 100px;
+    left: 10px;
+    height: 150px;
+    width: 150px;
+}
+
+.cloud1 {
+    top: 30vh;
+    left: 80vw;
+}
+
+.cloud2 {
+    top: 20vh;
+    left: 10vw;
+}
+
+.cloud3 {
+    top: 35vh;
+    left: 5vw;
+}
+
+.cloud4 {
+    top: 40vh;
+    left: 85vw;
+}
+
+.tree {
+    height: 25vh;
+    width: auto;
+}
+.tree2, .tree3 {
+    transform: scaleX(-1);
+}
+
+.tree1 {
+    top: 130vh;
+    left: 3vw;
+}
+
+.tree4 {
+    top: 205vh;
+    left: 1vw;
+}
+.tree3 {
+    top: 130vh;
+    left: 85vw;
+}
+
+.tree2 {
+    top: 200vh;
+    left: 85vw;
+}
+
+.sun {
+    width: 600px;
+    height: 600px;
+    top: 60vh;
+}
+.beach {
+    width: 300px;
+    height: 300px;
+    left: 0;
+    top: 280vh;
+}
+
+img[src="morty/mrtyscare.png"], .sp {
+    transform: scaleX(-1);
+}
